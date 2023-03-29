@@ -85,7 +85,7 @@ const IndexPage = () => {
 
         {/* Location */}
         <FormControl>
-          <FormLabel htmlFor="location">場所</FormLabel>
+          <FormLabel htmlFor="location">デート場所</FormLabel>
           <Select
             id="location"
             name="location"
@@ -104,7 +104,7 @@ const IndexPage = () => {
 
         {/* Age */}
         <FormControl>
-          <FormLabel htmlFor="age">年齢</FormLabel>
+          <FormLabel htmlFor="age">自分の年齢</FormLabel>
           <Input
             type="number"
             id="age"
@@ -117,7 +117,7 @@ const IndexPage = () => {
 
         {/* Height */}
         <FormControl>
-          <FormLabel htmlFor="height">身長</FormLabel>
+          <FormLabel htmlFor="height">自分の身長</FormLabel>
           <Input
             type="number"
             id="height"
@@ -130,7 +130,7 @@ const IndexPage = () => {
 
         {/* Hobbies */}
         <FormControl>
-          <FormLabel htmlFor="hobbies">趣味</FormLabel>
+          <FormLabel htmlFor="hobbies">相手の趣味</FormLabel>
           <Input
             type="text"
             id="hobbies"
@@ -143,7 +143,7 @@ const IndexPage = () => {
 
         {/* Favorite Celebrity */}
         <FormControl>
-          <FormLabel htmlFor="favoriteCelebrity">好きな芸能人</FormLabel>
+          <FormLabel htmlFor="favoriteCelebrity">相手の好きな芸能人</FormLabel>
           <Input
             type="text"
             id="favoriteCelebrity"
@@ -156,7 +156,7 @@ const IndexPage = () => {
 
         {/* Occupation */}
         <FormControl>
-          <FormLabel htmlFor="occupation">職種</FormLabel>
+          <FormLabel htmlFor="occupation">相手の職種</FormLabel>
           <Input
             type="text"
             id="occupation"

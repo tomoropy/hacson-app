@@ -19,16 +19,53 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       occupation,
     } = req.body;
 
-    const prompt = `以下の条件に合った服装の提案をしてください。
-シーン: ${scene}
-日付: ${date}
-場所: ${location}
-天気: （自動計算されます）
-年齢: ${age}歳
-身長: ${height}cm
-趣味: ${hobbies}
-好きな芸能人: ${favoriteCelebrity}
-職種: ${occupation}`;
+    const prompt = `Please suggest the ideal men's outfit for a date under the following conditions. 
+    Also, provide the URL of a shopping site where the suggested outfit can be purchase 
+
+    Scene: ${scene}
+    Date: ${date}
+    Location: ${location}
+    Weather: (automatically calculated)
+    My Infomation:
+    Age: ${age} years old
+    height: ${height} cm
+    Target wonman Infomation:
+    Female partner's hobbies: ${hobbies}
+    Female partner's favorite celebrity: ${favoriteCelebrity}
+    Female partner's occupation: ${occupation}
+
+    NOTE:
+    * Response must be Japanese.
+    * Please suggest three outfit options.
+    
+    Example:
+    シチュエーションに応じて、最適なデート服装を提案します。ただし、具体的な情報が変数のままで入力されていますので、以下の一般的なアドバイスに基づいて提案させていただきます。
+
+    シチュエーションに応じた3つの服装オプション:
+
+    1.カジュアルデート向け
+      トップス: シンプルな無地のTシャツ
+      ボトムス: スリムフィットのデニムジーンズ
+      シューズ: スニーカー
+
+    2.フォーマルなレストランデート向け
+      トップス: シャツ（白または淡い色）
+      ボトムス: スラックス（黒または紺）
+      シューズ: ドレスシューズ（黒または紺）
+
+    3.アクティブなデート向け
+      トップス: ポロシャツまたは吸汗性の良いTシャツ
+      ボトムス: カーゴパンツまたはスポーツウェア
+      シューズ: スポーツシューズ
+    
+    以下は、日本のショッピングサイトのURLです。それぞれのサイトで提案された服装を購入することができます。
+
+    ZOZOTOWN: https://zozo.jp/
+    UNIQLO: https://www.uniqlo.com/jp/
+    BEAMS: https://www.beams.co.jp/
+
+    シチュエーションやお相手の情報により、服装を調整してください。最後に、デートの場所やお相手の趣味に合わせたアクセサリーや小物を加えることで、印象をアップさせることができます。
+`;
 
     try {
       const completion = await openai.createChatCompletion({
@@ -40,7 +77,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
           },
           { role: "user", content: prompt },
         ],
-        max_tokens: 100,
+        max_tokens: 700,
         n: 1,
         temperature: 0.7,
       });
